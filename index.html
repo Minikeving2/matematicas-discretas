@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Grafos — Representaciones & Recorrido Euleriano</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header style="text-align:center;">
+    <h1>Grafos — Representaciones & Recorrido Euleriano</h1>
+<p class=\"autor\">Proyecto hecho por Kevin</p>
+    <p class="subtitle">Crea grafos, visualiza las tres representaciones y recorre aristas exactamente una vez (Euler).</p>
+  </header>
+
+  <main>
+    <aside class="controls">
+      <div class="group">
+        <label>MODO</label>
+        <div class="btn-row">
+          <button id="btn-node" class="mode active">Nodo</button>
+          <button id="btn-edge" class="mode">Arista</button>
+          <button id="btn-move" class="mode">Mover</button>
+          <button id="btn-delete" class="mode">Borrar</button>
+        </div>
+      </div>
+
+      <div class="group">
+        <label>Acciones</label>
+        <div class="btn-row">
+          <button id="btn-clear">Limpiar</button>
+          <button id="btn-sample">Ejemplo</button>
+        </div>
+      </div>
+
+      <div class="group">
+        <label>Euler</label>
+        <div class="btn-row">
+          <button id="btn-check">Comprobar Euler</button>
+          <button id="btn-run">Recorrer Euleriano</button>
+        </div>
+        <label class="small">Velocidad animación (ms)</label>
+        <input id="speed" type="range" min="100" max="1200" value="500" />
+      </div>
+
+      <div class="info">
+        <p id="info-deg">Nodos: 0 — Aristas: 0</p>
+        <p id="euler-status">Estado Euleriano: —</p>
+        <p id="euler-path"></p>
+      </div>
+
+      <div class="notes">
+        <strong>Instrucciones rápidas</strong>
+        <ul>
+          <li>Modo <em>Nodo</em>: clic para añadir nodo.</li>
+          <li>Modo <em>Arista</em>: clic en dos nodos para crear arista.</li>
+          <li>Modo <em>Mover</em>: arrastra nodos.</li>
+          <li>Modo <em>Borrar</em>: clic en nodo o arista para eliminar.</li>
+        </ul>
+      </div>
+    </aside>
+
+    <section class="canvas-wrap">
+      <canvas id="canvas" width="1100" height="640"></canvas>
+
+      <div class="controls-bottom">
+        <div class="tabs">
+          <button class="tab-btn active" data-tab="adj-list">Lista de adyacencia</button>
+          <button class="tab-btn" data-tab="adj-matrix">Matriz de adyacencia</button>
+          <button class="tab-btn" data-tab="edge-list">Lista de aristas</button>
+        </div>
+
+        <div id="adj-list" class="tab visible panel-block"></div>
+        <div id="adj-matrix" class="tab panel-block"></div>
+        <div id="edge-list" class="tab panel-block"></div>
+      </div>
+
+      <div class="explain panel-block">
+        <h3>Representaciones</h3>
+        <p><strong>1) Lista de adyacencia:</strong> Para cada nodo se listan sus vecinos.</p>
+        <p><strong>2) Matriz de adyacencia:</strong> Tabla NxN que indica si existe arista entre dos nodos.</p>
+        <p><strong>3) Lista de aristas:</strong> Muestra cada arista explícitamente como (u, v). Cada arista tiene un ID único mostrado en el canvas.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <small>Proyecto generado — incluye Fleury para recorrido Euleriano y visualizaciones modernas.</small>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

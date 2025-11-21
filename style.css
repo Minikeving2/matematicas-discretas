@@ -1,0 +1,136 @@
+/* Modern CSS for graph project */
+:root{
+  --bg:#f6f8fa;
+  --card:#ffffff;
+  --accent:#0ea5e9;
+  --muted:#6b7280;
+  --success:#16a34a;
+  --danger:#ef4444;
+  --shadow: 0 10px 30px rgba(2,6,23,0.06);
+  --radius:12px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg,var(--bg),#fff);
+  color:#0f172a;
+}
+
+header{padding:18px 28px;background:var(--card);box-shadow:var(--shadow);border-bottom:1px solid #eef3f8}
+header h1{margin:0;font-size:20px}
+header .subtitle{margin:6px 0 0;color:var(--muted);font-size:13px}
+
+main{display:flex;gap:18px;padding:18px;align-items:flex-start}
+.controls{
+  width:320px;
+  background:linear-gradient(180deg,#fff,#fbfdff);
+  border-radius:var(--radius);
+  padding:16px;
+  box-shadow:var(--shadow);
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  border:1px solid #eef6fb;
+}
+
+.controls .group label{font-weight:700;font-size:13px;color:#111;margin-bottom:8px;display:block}
+.btn-row{display:flex;flex-wrap:wrap;gap:8px}
+.mode, .controls button{
+  background:transparent;border:1px solid #e6eef6;padding:8px 10px;border-radius:8px;cursor:pointer;font-size:13px;
+  transition:all .12s ease;
+}
+.mode.active{background:linear-gradient(90deg,var(--accent),#3b82f6);color:white;border-color:transparent;box-shadow:0 6px 16px rgba(14,165,233,0.12)}
+
+.info{margin-top:6px;padding-top:6px;border-top:1px dashed #edf2f7;font-size:13px;color:var(--muted)}
+.info p{margin:6px 0}
+
+.notes{font-size:13px;color:var(--muted);background:#fbfdff;padding:10px;border-radius:8px;border:1px solid #eef6fb}
+
+.canvas-wrap{flex:1;display:flex;flex-direction:column;gap:8px}
+canvas{background:linear-gradient(180deg,#ffffff,#f8fbff);border-radius:12px;box-shadow:var(--shadow);border:1px solid #e6f0fa;width:100%;height:640px;touch-action:none}
+
+.controls-bottom{display:flex;flex-direction:column;gap:8px;margin-top:8px}
+.tabs{display:flex;gap:10px}
+.tab-btn{padding:8px 12px;background:#e5e7eb;border:none;border-radius:6px;cursor:pointer}
+.tab-btn.active{background:var(--accent);color:#fff}
+.tab{display:none;margin-top:10px;background:#fff;padding:10px;border-radius:8px;box-shadow:0 4px 12px rgba(2,6,23,0.04)}
+.tab.visible{display:block}
+.panel-block{min-height:80px;overflow:auto;font-family:monospace;font-size:13px;white-space:normal}
+
+/* tables */
+.matrix-table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+  font-family: monospace;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+.matrix-table th {
+  background: #0ea5e9;
+  color: white;
+  padding: 6px;
+  font-weight: bold;
+}
+
+.matrix-table td {
+  padding: 6px;
+  border: 1px solid #e5e7eb;
+}
+
+.matrix-table tr:nth-child(even) td {
+  background: #f0f9ff;
+}
+
+.list-table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 10px;
+  background: white;
+  font-family: monospace;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+.list-table th {
+  background: #1d4ed8;
+  color: white;
+  padding: 6px;
+  font-weight: bold;
+}
+
+.list-table td {
+  padding: 6px;
+  border: 1px solid #e5e7eb;
+}
+
+.list-table tr:nth-child(even) td {
+  background: #eff6ff;
+}
+
+/* edge list */
+.edge-table th { background:#6b7280; color:white; padding:6px; }
+.edge-table td { padding:6px; border:1px solid #e5e7eb; }
+
+/* legend for edge numbering */
+.edge-label {
+  display:inline-block;
+  background:#0ea5e9;color:white;padding:2px 6px;border-radius:12px;font-size:11px;margin-left:6px;
+}
+
+/* responsive */
+@media (max-width:980px){
+  main{flex-direction:column}
+  .controls{width:100%}
+  .canvas-wrap{order:2}
+}
+
+.autor { margin-top:4px; font-size:14px; color:#1e293b; font-weight:600; text-align:center; }
